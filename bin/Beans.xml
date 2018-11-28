@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+       <property name="url" value="jdbc:sqlserver://ABC-PC\\SQLEXPRESS:1433;databaseName=Test;integratedSecurity=true"/>
+  		<property name="username" value="abc-PC\\Home"/>
+  		<property name="password" value=""/>
+   </bean>
+    
+    <bean id="helloworld" class="com.test.HelloWorld">
+       <property name="msg" value="Hello World!"/>
+   </bean>
+   
+   <bean id="studentJDBCTemplate" class="com.test.StudentJDBCTemplate">
+       <property name="dataSource" ref="dataSource"/>
+   </bean>
+
+</beans>
